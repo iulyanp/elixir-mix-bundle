@@ -43,9 +43,15 @@ class MixExtension extends \Twig_Extension
 
         $manifest = $this->readManifest();
 
-        $flatten = $this->flattenArray($manifest['assetsByChunkName']);
+        if (!array_key_exists($asset, $manifest)) {
+            throw new \Exception(sprintf(
+                'The "%s" key could not be found in the manifest file. %s',
+                $asset,
+                'Please pass just the asset filename as a parameter to the mix() method.'
+            ));
+        }
 
-        return $this->getVersionedFile($asset, $flatten, $manifest);
+        return $manifest[$asset];
     }
 
     /**
@@ -67,7 +73,7 @@ class MixExtension extends \Twig_Extension
         static $manifest;
 
         if (! $manifest) {
-            $manifestPath = $this->webDir.'/../Mix.json';
+            $manifestPath = $this->webDir.'/manifest.json';
 
             if (! file_exists($manifestPath)) {
                 throw new \Exception(
@@ -80,45 +86,5 @@ class MixExtension extends \Twig_Extension
         }
 
         return $manifest;
-    }
-
-    /**
-     * @param $array
-     * @param $depth
-     *
-     * @return array
-     */
-    public function flattenArray($array, $depth = INF)
-    {
-        return array_reduce($array, function ($result, $item) use ($depth) {
-            if (! is_array($item)) {
-                return array_merge($result, [$item]);
-            } elseif ($depth === 1) {
-                return array_merge($result, array_values($item));
-            } else {
-                return array_merge($result, static::flattenArray($item, $depth - 1));
-            }
-        }, []);
-    }
-
-    /**
-     * @param $file
-     * @param $flatten
-     * @param $manifest
-     *
-     * @return array
-     */
-    private function getVersionedFile($file, $flatten, $manifest)
-    {
-        $versionedFile = array_filter(
-            $flatten,
-            function ($compiledFile) use ($file, $manifest) {
-                $compiledFileOriginal = trim(str_replace($manifest['hash'].'.', '', $compiledFile), '/');
-
-                return ($file == $compiledFileOriginal) ? $compiledFile : null;
-            }
-        );
-
-        return reset($versionedFile);
     }
 }
