@@ -1,0 +1,30 @@
+{
+  "name": "iulyanp/elixir-mix-bundle",
+  "type": "symfony-bundle",
+  "description": "A Symfony bundle that integrates Laravel Mix",
+  "keywords": ["symfony3", "elixir", "laravel-mix", "mix bundle", "symfony mix", "symfony mix bundle"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Iulian Popa",
+      "email": "iulyanpopa@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Iulyanp\\ElixirMixBundle\\": ""
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "Tests/"
+    }
+  },
+  "require": {
+    "php": "^5.6|^7.0",
+    "symfony/symfony": "^2.7|^3.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.5"
+  }
+}

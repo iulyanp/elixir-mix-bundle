@@ -1,0 +1,8 @@
+services:
+    iulyanp_elixir_mix_extension:
+        class: Iulyanp\ElixirMixBundle\Twig\MixExtension
+        public: false
+        arguments:
+            - '%web_dir%'
+        tags:
+            - { name: twig.extension }
