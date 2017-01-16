@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/iulyanp/elixir-mix-bundle.svg?branch=master)](https://travis-ci.org/iulyanp/elixir-mix-bundle)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/iulyanp/elixir-mix-bundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/iulyanp/elixir-mix-bundle/?branch=master)
+
 ElixirMixBundle
 ===================
 
