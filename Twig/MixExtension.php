@@ -23,7 +23,7 @@ class MixExtension extends \Twig_Extension
     }
 
     /**
-     * @return array
+     * @return \Twig_SimpleFunction[]
      */
     public function getFunctions()
     {
@@ -33,7 +33,7 @@ class MixExtension extends \Twig_Extension
     }
 
     /**
-     * @param $asset
+     * @param string $asset
      *
      * @throws \Exception
      *
