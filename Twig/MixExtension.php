@@ -74,12 +74,12 @@ class MixExtension extends \Twig_Extension
     {
         static $manifest;
 
-        if (! $manifest) {
+        if (!$manifest) {
             $manifestPath = sprintf('%s/%s', $this->webDir, self::MANIFEST);
 
-            if (! file_exists($manifestPath)) {
+            if (!file_exists($manifestPath)) {
                 throw new \Exception(
-                    'The Laravel Mix manifest file does not exist. ' .
+                    'The Laravel Mix manifest file does not exist. '.
                     'Please run "npm run webpack" and try again.'
                 );
             }
