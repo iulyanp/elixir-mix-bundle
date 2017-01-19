@@ -33,15 +33,15 @@ class ElixirMixExtensionTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             'css/app-db9165hf67.css',
-            $this->mixExtension->mix('app.css')
+            $this->mixExtension->mix('css/app.css')
         );
         $this->assertEquals(
             'css/index-9rt53c9u67.css',
-            $this->mixExtension->mix('index.css')
+            $this->mixExtension->mix('css/index.css')
         );
         $this->assertEquals(
             'js/app-db9183c967.js',
-            $this->mixExtension->mix('app.js')
+            $this->mixExtension->mix('js/app.js')
         );
     }
 

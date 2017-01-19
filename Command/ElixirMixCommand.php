@@ -50,6 +50,8 @@ class ElixirMixCommand extends ContainerAwareCommand
         } catch (IOExceptionInterface $e) {
             $this->writeError($output, $e->getMessage());
         }
+
+        $this->writeInfo($output, "You're all set. Go and build something amazing.");
     }
 
     /**

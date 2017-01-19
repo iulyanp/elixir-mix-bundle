@@ -10,6 +10,8 @@ class MixExtension extends \Twig_Extension
     /** @var string */
     protected $webDir;
 
+    const MANIFEST = 'mix-manifest.json';
+
     /**
      * MixExtension constructor.
      *
@@ -73,7 +75,7 @@ class MixExtension extends \Twig_Extension
         static $manifest;
 
         if (! $manifest) {
-            $manifestPath = $this->webDir.'/manifest.json';
+            $manifestPath = sprintf('%s/%s', $this->webDir, self::MANIFEST);
 
             if (! file_exists($manifestPath)) {
                 throw new \Exception(
