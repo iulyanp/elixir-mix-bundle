@@ -41,8 +41,6 @@ class MixExtension extends \Twig_Extension
      */
     public function mix($asset)
     {
-        $asset = trim($asset, '/');
-
         $manifest = $this->readManifest();
 
         if (!array_key_exists($asset, $manifest)) {
