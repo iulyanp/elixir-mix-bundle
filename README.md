@@ -47,7 +47,23 @@ class AppKernel extends Kernel
 }
 ```
 
-### Step 3: Initialize larave-mix package
+### Step 3: Configure the bundle
+In order to be able to use the bundle you have to give it some configuration specific to your application.
+
+```
+# config/parameters.yml
+parameters:
+    # ...
+    web_dir: "%kernel.root_dir%/../web"
+
+# config/config.yml
+iulyanp_elixir_mix:
+    web_dir: "%web_dir%"
+```
+The `web_dir` configuration is just the public path where you want the output for your assets to be saved. I used `web`
+directory from Symfony.
+
+### Step 4: Initialize larave-mix package
 If you already have installed `Node.js`, `npm` you should be all set to run:
 
 ```
