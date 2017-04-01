@@ -22,11 +22,10 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                    ->scalarNode('web_dir')
-                    ->isRequired()
-                ->end()
+            ->scalarNode('web_dir')
+            ->isRequired()
+            ->end()
             ->end();
-
 
         return $treeBuilder;
     }

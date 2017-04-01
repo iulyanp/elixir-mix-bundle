@@ -7,10 +7,11 @@ namespace Iulyanp\ElixirMixBundle\Twig;
  */
 class MixExtension extends \Twig_Extension
 {
-    /** @var string */
-    protected $webDir;
-
     const MANIFEST = 'mix-manifest.json';
+    /**
+     * @var string
+     */
+    protected $webDir;
 
     /**
      * MixExtension constructor.
@@ -33,10 +34,11 @@ class MixExtension extends \Twig_Extension
     }
 
     /**
-     * @param string $asset
+     * Get the mix file from the manifest
+     *
+     * @param string $asset The needed asset
      *
      * @throws \Exception
-     *
      * @return string
      */
     public function mix($asset)
@@ -44,11 +46,13 @@ class MixExtension extends \Twig_Extension
         $manifest = $this->readManifest();
 
         if (!array_key_exists($asset, $manifest)) {
-            throw new \Exception(sprintf(
-                'The "%s" key could not be found in the manifest file. %s',
-                $asset,
-                'Please pass just the asset filename as a parameter to the mix() method.'
-            ));
+            throw new \Exception(
+                sprintf(
+                    'The "%s" key could not be found in the manifest file. %s',
+                    $asset,
+                    'Please pass just the asset filename as a parameter to the mix() method.'
+                )
+            );
         }
 
         return $manifest[$asset];
@@ -65,6 +69,8 @@ class MixExtension extends \Twig_Extension
     }
 
     /**
+     * Read the manifest file if exists
+     *
      * @return array
      * @throws \Exception
      */
@@ -77,7 +83,7 @@ class MixExtension extends \Twig_Extension
 
             if (!file_exists($manifestPath)) {
                 throw new \Exception(
-                    'The Laravel Mix manifest file does not exist. '.
+                    'The Laravel Mix manifest file does not exist. ' .
                     'Please run "npm run webpack" and try again.'
                 );
             }

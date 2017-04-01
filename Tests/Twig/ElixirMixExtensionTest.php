@@ -3,16 +3,17 @@
 namespace Iulyanp\ElixirMixBundle\Tests\Twig;
 
 use Iulyanp\ElixirMixBundle\Twig\MixExtension;
+use PHPUnit_Framework_TestCase;
 
 /**
- * Class Test
+ * Class ElixirMixExtensionTest
  */
-class ElixirMixExtensionTest extends \PHPUnit_Framework_TestCase
+class ElixirMixExtensionTest extends PHPUnit_Framework_TestCase
 {
     const WEB_DIR = __DIR__.'/stub';
 
     /**
-     * @var
+     * @var MixExtension
      */
     private $mixExtension;
 
@@ -51,8 +52,10 @@ class ElixirMixExtensionTest extends \PHPUnit_Framework_TestCase
     public function elixirFunctionThrowsErrorWhenFileNotExists()
     {
         $this->expectException('\Exception');
-        $this->expectExceptionMessage('The "css/not_existing.css" key could not be found in the manifest file. '.
-        'Please pass just the asset filename as a parameter to the mix() method.');
+        $this->expectExceptionMessage(
+            'The "css/not_existing.css" key could not be found in the manifest file. '.
+            'Please pass just the asset filename as a parameter to the mix() method.'
+        );
         $this->mixExtension->mix('css/not_existing.css');
     }
 }
