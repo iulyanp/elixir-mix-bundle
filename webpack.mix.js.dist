@@ -22,7 +22,10 @@ let mix = require('laravel-mix').mix;
  | mix.disableNotifications();
  | mix.setPublicPath('path/to/public'); <-- Useful for Node apps.
  | mix.webpackConfig({}); <-- Override webpack.config.js, without editing the file directly.
- |
+ | mix.autoload(libs);
+ | mix.standaloneSass(src, output, pluginOptions = {});
+ | mix.options(options);
+ | mix.copyDirectory(from, to);
  */
 
 
@@ -30,3 +33,11 @@ mix
     .setPublicPath('web') // assuming that your public path is the symfony web directory
     .js('app/Resources/assets/js/app.js', 'js')
     .sass('app/Resources/assets/sass/app.scss', 'css');
+
+/*
+ | If your app requires jQuery, you can manually add it.
+ |
+ | mix.autoload({
+ |     jquery: ['$', 'window.jQuery', 'jQuery']
+ | });
+*/
