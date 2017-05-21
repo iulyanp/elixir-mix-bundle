@@ -79,6 +79,7 @@ Now you can use mix() function to version a file like this:
 ```
 <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}" />
 ```
+You can find more about laravel mix usage on the [official documentation](https://github.com/JeffreyWay/laravel-mix/tree/master/docs#summary)
 
 ### License
 The ElixirMixBundle is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
