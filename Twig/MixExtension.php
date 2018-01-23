@@ -34,11 +34,12 @@ class MixExtension extends \Twig_Extension
     }
 
     /**
-     * Get the mix file from the manifest
+     * Get the mix file from the manifest.
      *
      * @param string $asset The needed asset
      *
      * @throws \Exception
+     *
      * @return string
      */
     public function mix($asset)
@@ -69,10 +70,11 @@ class MixExtension extends \Twig_Extension
     }
 
     /**
-     * Read the manifest file if exists
+     * Read the manifest file if exists.
+     *
+     * @throws \Exception
      *
      * @return array
-     * @throws \Exception
      */
     private function readManifest()
     {
@@ -83,7 +85,7 @@ class MixExtension extends \Twig_Extension
 
             if (!file_exists($manifestPath)) {
                 throw new \Exception(
-                    'The Laravel Mix manifest file does not exist. ' .
+                    'The Laravel Mix manifest file does not exist. '.
                     'Please run "npm run webpack" and try again.'
                 );
             }
