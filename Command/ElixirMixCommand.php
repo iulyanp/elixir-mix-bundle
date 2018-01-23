@@ -9,9 +9,7 @@ use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Symfony\Component\Filesystem\Filesystem;
 
 /**
- * Class ElixirMixCommand
- *
- * @package Iulyanp\ElixirMixCommand\Command
+ * Class ElixirMixCommand.
  */
 class ElixirMixCommand extends ContainerAwareCommand
 {
@@ -41,11 +39,11 @@ class ElixirMixCommand extends ContainerAwareCommand
         try {
             $fs = new Filesystem();
 
-            $packageContent = realpath(dirname(__FILE__)) . '/../package.json';
+            $packageContent = realpath(dirname(__FILE__)).'/../package.json';
             $packagePath = sprintf('%s%s', $rootDir, 'package.json');
             $fs->copy($packageContent, $packagePath);
 
-            $webpackMixContent = realpath(dirname(__FILE__)) . '/../webpack.mix.js.dist';
+            $webpackMixContent = realpath(dirname(__FILE__)).'/../webpack.mix.js.dist';
             $webpackMixPath = sprintf('%s%s', $rootDir, 'webpack.mix.js');
             $fs->copy($webpackMixContent, $webpackMixPath);
         } catch (IOExceptionInterface $e) {
@@ -63,7 +61,7 @@ class ElixirMixCommand extends ContainerAwareCommand
      */
     private function writeError(OutputInterface $output, $error)
     {
-        return $output->writeln('<error>' . $error . '</error>');
+        return $output->writeln('<error>'.$error.'</error>');
     }
 
     /**
