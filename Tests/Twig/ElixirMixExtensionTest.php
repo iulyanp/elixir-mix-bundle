@@ -6,7 +6,7 @@ use Iulyanp\ElixirMixBundle\Twig\MixExtension;
 use PHPUnit_Framework_TestCase;
 
 /**
- * Class ElixirMixExtensionTest
+ * Class ElixirMixExtensionTest.
  */
 class ElixirMixExtensionTest extends PHPUnit_Framework_TestCase
 {
