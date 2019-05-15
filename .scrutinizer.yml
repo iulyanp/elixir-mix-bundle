@@ -17,6 +17,9 @@ checks:
         line_length:
             max_length: '120'
         function_in_camel_caps: true
+        excluded_dependencies:
+            - myclabs/deep-copy
+            - symfony/symfony
 
 filter: {  }
 coding_style:
