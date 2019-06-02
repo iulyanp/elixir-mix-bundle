@@ -4,7 +4,7 @@
 ElixirMixBundle
 ===================
 
-> Note! Starting with Symfony 4 you can use the official webpack wrapper from Symfony: [Encore](https://symfony.com/doc/current/frontend/encore/installation.html)
+> Note! Starting with Symfony 4 you can use the official webpack wrapper from Symfony: [Encore](https://symfony.com/doc/current/frontend/encore/installation.html).
 I also wrote a short blog post about how you can [Compile your assets with Symfony Encore](https://iulyanp.github.io/symfony/2017/06/18/symfony-encore/).
 
 ElixirMixBundle is a Symfony bundle that integrates [Laravel Mix](https://github.com/JeffreyWay/laravel-mix). 
