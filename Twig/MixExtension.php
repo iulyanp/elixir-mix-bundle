@@ -55,7 +55,9 @@ class MixExtension extends \Twig_Extension
             );
         }
 
-        return $manifest[$asset];
+        return file_exists($this->webDir.'/hot')
+            ? "http://localhost:3000{$manifest[$asset]}"
+            : $manifest[$asset];
     }
 
     /**
